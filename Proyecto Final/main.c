@@ -21,14 +21,13 @@ typedef struct{
     Point puntos[10];
 }Cliente;
 
-void New_Client();
-void Ten_Game();
+void New_Client();//Lista y probada
+void Ten_Game();//Lista y probada
 void Old_Client();
 int veri_Existe(int cont);//Lista y probada
-int creador();
+int creador();//Lista y probada
 
 int main(){
-    New_Client();
     return 0;
 }
 
@@ -60,7 +59,7 @@ void New_Client(){
     }
     char fileSpec[strlen(nombre)+strlen(extension)+digitos+1];
     snprintf( fileSpec, sizeof( fileSpec ), "%d%s%s", acum, nombre, extension);
-    FILE *User;
+    FILE* User;
     do{
         User = fopen(fileSpec,"wb");
     }while(User==NULL);
@@ -68,11 +67,11 @@ void New_Client(){
     printf("Ingrese su nombre:\n");
     scanf("%s",Usuario.nombre);
     printf("Ingrese la Cedula:\n");
-    scanf("%d",Usuario.cedula);
+    scanf("%d",&Usuario.cedula);
     printf("Ingrese su # telefonico sin guiones:\n");
-    scanf("%d",Usuario.telefono);
+    scanf("%d",&Usuario.telefono);
     printf("Ingrese su Sexo: \n \t 1 - Hombre \n \t 2 - Mujer \n \t 3 - Otro \n");
-    scanf("%d",Usuario.sexo);
+    scanf("%d",&Usuario.sexo);
     fprintf(User,"%d %s %d %d \n",Usuario.cedula,Usuario.nombre,Usuario.telefono,Usuario.sexo);
     fclose(User);
 }
@@ -83,7 +82,7 @@ void Old_Client(){
 
 int creador(){
     int val,i=0;
-    char buffer[80]={0};
+    char buffer[21]={0};//Maximo de clientes a almacenar <1M,debido a que coge 14 espacios el comentario + 1 por el vacio y deja 4 libres para numeros.
     do{
         i++;
         val=veri_Existe(i);
@@ -109,14 +108,16 @@ int veri_Existe(int cont){
         digitos++;
     }
     char fileSpec[strlen(nombre)+strlen(extension)+digitos+1];
-    FILE *datos;
+    FILE* datos;
     snprintf( fileSpec, sizeof( fileSpec ), "%d%s%s", cont, nombre, extension );
     datos = fopen( fileSpec, "rb" );
    if(datos==NULL){
        printf("El Cliente #%d no existe.\n",cont);
+       fclose(datos);
        return cont;
    }
    else{
+       fclose(datos);
        return 0;
    }
 }
