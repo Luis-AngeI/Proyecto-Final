@@ -21,10 +21,10 @@ typedef struct{
     Point puntos[10];
 }Cliente;
 
-int New_Client();//Lista y probada
-void Ten_Game();//Lista y probada
-int Old_Client();//Lista y probada     (Devuelve el # del archivo del cliente)
-int veri_Existe(int cont);//Lista y probada (Devuelve 0 si existe y el 1er # que encuentra y no existe)
+int New_Client();//Lista y probada                                 (Debo editar para que obtenga los codigo de los juegos.)
+void Ten_Game();//Lista y probada                               (Debo editar y anadir que pueda coger los datos desde fuera.)
+int Old_Client();//Lista y probada                                      (Devuelve el # del archivo del cliente.)
+int veri_Existe(int cont);//Lista y probada                      (Devuelve 0 si existe y el 1er # que encuentra y no existe.)
 int creador();//Lista y probada
 void menu(int val);
 
