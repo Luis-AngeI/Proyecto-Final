@@ -26,6 +26,7 @@ int Ten_Game();//Lista y probada                               (Debo editar y an
 int Old_Client();//Lista y probada                                      (Devuelve el # del archivo del cliente.)
 int veri_Existe(int cont);//Lista y probada                      (Devuelve 0 si existe y el 1er # que encuentra y no existe.)
 int creador();//Lista y probada
+
 void menu(int val);
 
 int main(){
@@ -51,9 +52,11 @@ int main(){
                 switch(elige){
                     case 1:
                         val=New_Client();//Devuelve el numero del archivo del cliente.
+                        menu(val);
                         break;
                     case 2:
                         val=Old_Client();//Devuelve el numero del archivo del cliente.
+                        menu(val);
                         break;
                 }
                 break;
@@ -63,20 +66,43 @@ int main(){
 }
 
 int Ten_Game(){
-    FILE* Ten = fopen("D_Juegos.txt","wb");
+    FILE* Ten;
     Game juegos[10];
     int admin;
-    printf("Usted debera Ingresar la Informacion de los 10 Juegos: \n");
-    for(admin=0;admin<10;admin++){
-        fflush(stdin);
-        printf("Ingrese la Informacion del Juego #%d: \n",admin+1);
-        printf("Ingrese el Nombre: \n");
-        scanf("%s",juegos[admin].nombre);
-        juegos[admin].codigo=admin;
-        printf("Ingrese el la cantidad de puntos que vale el euro en este Juego:\n");
-        scanf("%d",&juegos[admin].euro);
-        fprintf(Ten,"%d %s %d \n",juegos[admin].codigo,juegos[admin].nombre,juegos[admin].euro);
-    }
+    printf("Usted debera Ingresar la Informacion de los 10 Juegos: \n \t 1 - Introducirlos Directamente. \n \t 2 - Importar de almacenamiento Externo. \n");
+    scanf("%d",&admin);
+    switch(admin){
+        case 1:
+            Ten = fopen("D_Juegos.txt","wb");
+            for(admin=0;admin<10;admin++){
+                fflush(stdin);
+                printf("Ingrese la Informacion del Juego #%d: \n",admin+1);
+                printf("Ingrese el Nombre: \n");
+                scanf("%s",juegos[admin].nombre);
+                juegos[admin].codigo=admin;
+                printf("Ingrese el la cantidad de puntos que vale el euro en este Juego:\n");
+                scanf("%d",&juegos[admin].euro);
+                fprintf(Ten,"%d %s %d \n",juegos[admin].codigo,juegos[admin].nombre,juegos[admin].euro);
+            }
+            break;
+        case 2:
+            Ten = fopen("D_Juegos.txt","rb");
+            if(Ten==NULL){
+                    fclose(Ten);
+                    printf("El archivo no existe.\nEsta Seccion se reiniciara.\n");
+                    return Ten_Game();
+            }
+            else
+                for(admin=0;admin<10;admin++){
+                    fscanf(Ten,"%d %s %d \n",&juegos[admin].codigo,juegos[admin].nombre,&juegos[admin].euro);
+                    printf("%d %s %d \n",juegos[admin].codigo,juegos[admin].nombre,juegos[admin].euro);
+            }
+            break;
+        default:
+            fclose(Ten);
+            printf("Error,numero no valido,Se reiniciara. \n");
+            return Ten_Game();
+        }
     fclose(Ten);
     return 2;
 }
