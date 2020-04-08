@@ -239,11 +239,28 @@ int veri_Existe(int cont){
 }
 
 void menu(int val){
-    /*
-1 Introducir puntos de un jugador.
-2. Conocer los puntos que un jugador lleva conseguidos en un juego.
-3. Mostrar para un jugador los puntos conseguidos en cada juego que ha participado.
-4. Calcular los euros ganados por un jugador.
-5. Terminar.
-*/
+    int opcion;
+    printf("Seleccione la opcion que desea realizar:\n \t 1 - Introducir puntos de un jugador.\n \t 2 - Conocer los puntos que un jugador lleva conseguidos en un juego.\n \t 3 - Mostrar para un jugador los puntos conseguidos en cada juego que ha participado.\n \t 4 - Calcular los euros ganados por un jugador.\n \t 5 - Terminar.\n");
+    scanf("%d",&opcion)
+    switch(opcion){
+        case 1:
+            //1 Introducir puntos de un jugador.
+            break;
+        case 2:
+            //2. Conocer los puntos que un jugador lleva conseguidos en un juego.
+            break;
+        case 3:
+            //3. Mostrar para un jugador los puntos conseguidos en cada juego que ha participado.
+            break;
+        case 4:
+            //4. Calcular los euros ganados por un jugador.
+            break;
+        case 5:
+            //5. Terminar.
+            printf("Gracias por preferirnos.\n");
+            break;
+        default:
+            printf("Error,El menu se reiniciara.\n");
+            menu(val);
+        }
 }
