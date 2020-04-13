@@ -109,7 +109,7 @@ int Ten_Game(){
             else
                 for(admin=0;admin<10;admin++){
                     fscanf(Ten,"%d %s %d \n",&juegos[admin].codigo,juegos[admin].nombre,&juegos[admin].euro);
-                    printf(" Codigo: %d \t Nombre: %s \t Cant.Puntos*Euro %d \n",juegos[admin].codigo,juegos[admin].nombre,juegos[admin].euro);
+                    printf(" Codigo: %d \t Nombre: %s \t Cant.Puntos*Euro: %d \n",juegos[admin].codigo,juegos[admin].nombre,juegos[admin].euro);
             }
             break;
         default:
