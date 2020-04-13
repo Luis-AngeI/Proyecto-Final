@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1586807444 source:c:\users\luis angel f.t\pycharmprojects\intento\re_intento\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"milib.h"
+
+1586764857 c:\users\luis angel f.t\pycharmprojects\intento\re_intento\milib.h
+
