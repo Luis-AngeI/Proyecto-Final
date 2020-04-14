@@ -164,13 +164,8 @@ int New_Client(){
         printf("Ingrese su Cedula:\n%d\n",Usuario.cedula);
         printf("Ingrese su nombre:\n");
         scanf("%s",Usuario.nombre);
-        do{
         printf("Ingrese su # telefonico sin guiones:\n");
         scanf("%d",&Usuario.telefono);
-        if(Usuario.telefono<999999999 || Usuario.telefono>10000000000){
-            printf("Numero invalido,Por favor Nuevamente ");
-        }
-        }while(Usuario.telefono<999999999 || Usuario.telefono>10000000000);
         do{
             printf("Ingrese su Sexo: \n \t 1 - Hombre \n \t 2 - Mujer \n \t 3 - Otro \n");
             scanf("%d",&Usuario.sexo);
