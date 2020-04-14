@@ -127,13 +127,8 @@ int New_Client(){
     FILE* User;
     FILE* Ten;
     Cliente Usuario;
-    do{
-        printf("Ingrese su Cedula:\n");
-        scanf("%d",&Usuario.cedula);
-        if(Usuario.telefono>9999999999 || Usuario.telefono<100000000000){
-            printf("Numero invalido,Por favor Nuevamente ");
-        }
-    }while(Usuario.telefono>9999999999 || Usuario.telefono<100000000000);
+    printf("Ingrese su Cedula:\n");
+    scanf("%d",&Usuario.cedula);
     do{
         fclose(User);
         acum++;
@@ -172,10 +167,10 @@ int New_Client(){
         do{
         printf("Ingrese su # telefonico sin guiones:\n");
         scanf("%d",&Usuario.telefono);
-        if(Usuario.telefono>999999999 || Usuario.telefono<10000000000){
+        if(Usuario.telefono<999999999 || Usuario.telefono>10000000000){
             printf("Numero invalido,Por favor Nuevamente ");
         }
-        }while(Usuario.telefono>999999999 || Usuario.telefono<10000000000);
+        }while(Usuario.telefono<999999999 || Usuario.telefono>10000000000);
         do{
             printf("Ingrese su Sexo: \n \t 1 - Hombre \n \t 2 - Mujer \n \t 3 - Otro \n");
             scanf("%d",&Usuario.sexo);
