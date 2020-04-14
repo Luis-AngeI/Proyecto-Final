@@ -567,7 +567,6 @@ void menu(int val){
             //3. Mostrar para un jugador los puntos conseguidos en cada juego que ha participado.
             system("cls");
             Mostrar(val);
-            system("cls");
             menu(val);
             break;
         case 4:
